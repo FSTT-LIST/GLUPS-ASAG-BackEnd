@@ -54,6 +54,16 @@ def addTemplate():
         response = {'question': question , 'answer': ref_answer , 'keywords': keywords }
         template.append(response)
 
+    dir_prof = templates_dir + prof_name + '/'
+    if not os.path.exists(dir_prof):
+        os.mkdir(dir_prof)
+    template_dir = dir_prof + template_name
+    if not os.path.exists(template_dir):
+        os.mkdir(template_dir)
+    json_path = os.path.join(template_dir, template_name + '.json')
+    with open(json_path, 'w', encoding='utf8') as json_file:
+        json.dump(template, json_file)
+    '''
     dir_prof = os.path.join(templates_dir,prof_name)
     if not os.path.exists(dir_prof):
        os.mkdir(dir_prof)
@@ -63,6 +73,7 @@ def addTemplate():
     json_path = os.path.join(template_dir, template_name + '.json')
     with open(json_path, 'w' , encoding='utf8') as json_file:
         json.dump(template, json_file)
+    '''
     return jsonify(template)
 
 '''
