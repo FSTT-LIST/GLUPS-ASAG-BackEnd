@@ -47,6 +47,7 @@ def reg_score(answer,keywords):
     reg_score = '0/0'
     regScore = 0
     pattern = '('
+    print(keywords)
     for keyword in keywords:
         if len(keyword[0]) != 0 :
             if keyword[0] != '\r' : counter += 1
